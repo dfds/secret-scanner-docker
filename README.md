@@ -6,11 +6,5 @@ and this image can be used to scan for secrets stored in git commits.
 ## Usage
 
 ```bash
-docker run --volume $PWD:/src dfdsdk/secret-scanner:tagname
-```
-
-### Example
-
-```bash
-docker run --volume $PWD:/src dfdsdk/secret-scanner detect --verbose --redact
+docker run --rm -v $PWD:/src dfdsdk/secret-scanner:tagname
 ```
