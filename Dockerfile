@@ -9,6 +9,8 @@ RUN apk update \
 
 WORKDIR /src
 
+COPY --chmod=0755 ./entrypoint.sh /usr/local/bin/entrypoint.sh
+
 RUN curl -LO https://github.com/zricethezav/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz \
     && curl -LO https://github.com/zricethezav/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_checksums.txt \
     && grep gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz gitleaks_${GITLEAKS_VERSION}_checksums.txt > gitleaks_checksum.txt \
@@ -17,4 +19,4 @@ RUN curl -LO https://github.com/zricethezav/gitleaks/releases/download/v${GITLEA
     && chmod +x gitleaks \
     && mv gitleaks /usr/local/bin/
 
-ENTRYPOINT [ "/usr/local/bin/gitleaks" ]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
