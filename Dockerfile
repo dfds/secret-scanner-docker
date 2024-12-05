@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.21
 
 ENV GITLEAKS_VERSION=8.2.7
 
