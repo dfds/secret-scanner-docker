@@ -1,6 +1,6 @@
 FROM alpine:3.22
 
-ENV GITLEAKS_VERSION=8.2.7
+ENV GITLEAKS_VERSION=8.28.0
 
 RUN apk update \
     && apk upgrade \
